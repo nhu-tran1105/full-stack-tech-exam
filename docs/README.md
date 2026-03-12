@@ -8,7 +8,7 @@
 |-----------|------|
 | **GitHub Repository** | https://github.com/nhu-tran1105/full-stack-tech-exam | 
 | **GitHub Pages (docs/)** | https://nhu-tran1105.github.io/full-stack-tech-exam/ | 
-| **Dev Server (Render)** | https://full-stack-tech-exam-583q.onrender.com | 
+| **Dev Server (Render)** | https://full-stack-tech-exam-583q.onrender.com/ | 
 | **Production Server (GCP)** | https://34.16.235.158/
 | **Issue** | [https://github.com/your-username/your-repo-name/issues/1](https://github.com/your-username/your-repo-name/issues/1) | 
 | **Pull Request** | https://github.com/nhu-tran1105/full-stack-tech-exam/pull/1 | 
