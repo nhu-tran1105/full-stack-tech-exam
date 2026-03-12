@@ -29,7 +29,7 @@ jobs:
           ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no "$SSH_USER@$SSH_HOST" << 'EOF'
             set -e
             
-            cd /home/quynhnhutran987/tech-exam || { echo "Directory not found"; exit 1; }
+            cd /home/quynhnhutran987/full-stack-tech-exam || { echo "Directory not found"; exit 1; }
             
             git fetch origin dev
             git reset --hard origin/dev
