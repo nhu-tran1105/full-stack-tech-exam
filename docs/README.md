@@ -1,15 +1,15 @@
 ># Full Stack Tech Exam - Readme Template
 
-**Name:** [Your Name Here]
+**Name:** Nhu Tran
 
 ## 🔗 Required Links
 
 | Component | Link | 
 |-----------|------|
-| **GitHub Repository** | [https://github.com/your-username/your-repo-name](https://github.com/your-username/your-repo-name) | 
-| **GitHub Pages (docs/)** | [https://your-username.github.io/your-repo-name/](https://your-username.github.io/your-repo-name/) | 
-| **Dev Server (Render)** | [https://your-app-name-dev.onrender.com](https://your-app-name-dev.onrender.com) | 
-| **Production Server (GCP)** | [http://your.static.external.ip:3000](http://your.static.external.ip:3000) | 
+| **GitHub Repository** | https://github.com/nhu-tran1105/full-stack-tech-exam | 
+| **GitHub Pages (docs/)** | https://nhu-tran1105.github.io/full-stack-tech-exam/ | 
+| **Dev Server (Render)** | https://full-stack-tech-exam-583q.onrender.com | 
+| **Production Server (GCP)** | https://34.16.235.158/
 | **Issue** | [https://github.com/your-username/your-repo-name/issues/1](https://github.com/your-username/your-repo-name/issues/1) | 
 | **Pull Request** | [https://github.com/your-username/your-repo-name/pull/1](https://github.com/your-username/your-repo-name/pull/1) | 
 | **Milestone** | [https://github.com/your-username/your-repo-name/milestone/1](https://github.com/your-username/your-repo-name/milestone/1) | 
