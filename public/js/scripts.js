@@ -7,12 +7,11 @@ userForm.addEventListener('submit', async (event) => {
     const usernameInput = document.getElementById('username').value;
 
     try {
-        const response = await fetch('/api/greet', {
+        const response = await fetch('/api/get-name', { // Changed from /api/greet
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ username: usernameInput })
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ userName: usernameInput })
+        
         });
 
         const data = await response.json();
@@ -25,4 +24,4 @@ userForm.addEventListener('submit', async (event) => {
         responseDisplay.className = "error-message";
         console.error('Fetch error:', error);
     }
-});
+});deploy-main-to-gcp.yml
