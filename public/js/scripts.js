@@ -1,28 +1,62 @@
-const userForm = document.getElementById('userForm');
-const responseDisplay = document.getElementById('serverResponse');
+document.addEventListener('DOMContentLoaded', () => {
 
-userForm.addEventListener('submit', async (event) => {
-    event.preventDefault(); // Stop page refresh
-    
-    const usernameInput = document.getElementById('username').value;
+    const initBtn = document.getElementById('initBtn');
+    const initStatus = document.getElementById('initStatus');
 
-    try {
-        const response = await fetch('/api/greet', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ username: usernameInput })
+    if (initBtn) {
+        initBtn.addEventListener('click', async () => {
+            initStatus.style.display = 'block';
+            initStatus.innerText = "Initializing...";
+            
+            try {
+                const response = await fetch('/api/init-emoji');
+                const data = await response.json();
+                
+                if (response.ok) {
+                    initStatus.innerText = data.message;
+                    initStatus.className = "success";
+                } else {
+                    initStatus.innerText = data.error || "Initialization failed";
+                    initStatus.className = "error";
+                }
+            } catch (err) {
+                initStatus.innerText = "Error: Cannot connect to server";
+                initStatus.className = "error";
+            }
         });
+    }
 
-        const data = await response.json();
-        
-        // Display response in the DOM
-        responseDisplay.textContent = data.message;
-        responseDisplay.className = "success-message";
-    } catch (error) {
-        responseDisplay.textContent = "Error: Could not connect to the server.";
-        responseDisplay.className = "error-message";
-        console.error('Fetch error:', error);
+    const nameForm = document.getElementById('nameForm');
+    const resultParagraph = document.getElementById('result');
+
+    if (nameForm) {
+        nameForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            
+            const userName = document.getElementById('userName').value;
+            resultParagraph.style.display = 'block';
+            resultParagraph.textContent = 'Searching...';
+
+            try {
+                const response = await fetch('/api/get-name', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ userName }),
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    resultParagraph.innerHTML = `Found: ${data.name} ${data.emoji}`;
+                    resultParagraph.className = "success";
+                } else {
+                    resultParagraph.textContent = data.error || 'No result found';
+                    resultParagraph.className = "error";
+                }
+            } catch (error) {
+                resultParagraph.textContent = 'An error occurred. Please try again.';
+                resultParagraph.className = "error";
+            }
+        });
     }
 });

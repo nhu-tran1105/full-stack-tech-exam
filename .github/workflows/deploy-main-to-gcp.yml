@@ -2,7 +2,7 @@ name: Deploy Main to GCP
 
 on:
   push:
-    branches: [main]
+    branches: [dev]
   workflow_dispatch:
 
 jobs:
@@ -29,16 +29,16 @@ jobs:
           ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no "$SSH_USER@$SSH_HOST" << 'EOF'
             set -e
             
-            cd /home/quynhnhutran987/nana-devops || { echo "Directory not found"; exit 1; }
+            cd /home/quynhnhutran987/full-stack-tech-exam || { echo "Directory not found"; exit 1; }
             
-            git fetch origin devv
-            git reset --hard origin/devv
+            git fetch origin dev
+            git reset --hard origin/dev
             
             rm -rf node_modules
             npm install --production --no-audit --no-fund
         
-            pm2 delete "$PM2_NAME" || true
-            pm2 start app.mjs --name "$PM2_NAME"
+            pm2 delete app || true
+            pm2 start app.mjs --name "app" --update-env
             pm2 save
             
             echo "Done!"
